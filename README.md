@@ -1,24 +1,14 @@
-# README
+# PLANT APP README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Current Setup Instructions
 
-Things you may want to cover:
+- Clone Repo
+- `bundle install`
+- `bundle exec figaro install`
+- Add required ENV variables (see below)
+- Run `rails db:seed'
+- Start the backend server with 'rails s'
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Figuro stores ENV variables in config/application.yml. Two ENV variables are required for the app to work. 
+- jwt_secret_key: "SECRET"
+- trefle_api_key: "KEY"
