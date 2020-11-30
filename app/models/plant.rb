@@ -9,4 +9,7 @@ class Plant < ApplicationRecord
     api_data = JSON.parse(api_response)
   end
 
+  def self.find_plant_by_link(link)
+    api_response = RestClient.get("https://trefle.io#{link}?token=#{ENV['trefle_api_key']}")
+    api_data = JSON.parse(api_response)
 end

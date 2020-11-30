@@ -9,4 +9,6 @@ class Api::V1::PlantsController < ApplicationController
     # if query is bad or not present return different status
   end
 
+  
+
 end
