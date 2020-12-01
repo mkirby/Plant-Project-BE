@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :plants, only: [:create]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
-      get 'search/:slug', to: 'plants#plant_info'
+      get '/search/:slug', to: 'plants#plant_info'
       get '/search', to: 'plants#search'
     end
   end

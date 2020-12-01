@@ -1,7 +1,7 @@
 class Api::V1::PlantsController < ApplicationController
 
   def create
-    @plant = Plant.create(plant_params)
+    @plant = Plant.find_or_create_plant(plant_params)
     if @plant.valid?
       render json: { plant: PlantSerializer.new(@plant) }, status: :created
     else
@@ -30,7 +30,7 @@ class Api::V1::PlantsController < ApplicationController
   private
 
   def plant_params
-    params.require(:plant).permit(:api_id)
+    params.require(:plant).permit(:api_id, :slug)
   end
 
 end

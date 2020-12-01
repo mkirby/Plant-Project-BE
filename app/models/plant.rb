@@ -13,5 +13,21 @@ class Plant < ApplicationRecord
     api_response = RestClient.get("https://trefle.io/api/v1/plants/#{slug}?token=#{ENV['trefle_api_key']}")
     api_data = JSON.parse(api_response)
   end
+
+  def self.plant_in_database?(id)
+    Plant.find_by(api_id: id) ? true : false
+  end
+
+  def self.find_or_create_plant(plant_obj)
+    if Plant.plant_in_database?(plant_obj[:api_id])
+      existing_plant = Plant.find_by(api_id: plant_obj[:api_id])
+    elsif
+      new_plant = Plant.create(
+        api_id: plant_obj[:api_id],
+        slug: plant_obj[:slug]
+      )
+    end
+  end
+
   
 end
