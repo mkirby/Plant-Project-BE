@@ -14,7 +14,7 @@ class Api::V1::PlantsController < ApplicationController
     if @query
       api_data = Plant.search_plants_by_query(@query)
     end
-    render json: { api_data: api_data }, status: :accepted
+    render json: { api: api_data }, status: :accepted
 
     # if query is bad or not present return different status
   end
@@ -24,7 +24,7 @@ class Api::V1::PlantsController < ApplicationController
     if @slug
       api_data = Plant.find_plant_by_slug(@slug)
     end
-    render json: { api_data: api_data }, status: :accepted
+    render json: { api: api_data }, status: :accepted
   end
 
   private
