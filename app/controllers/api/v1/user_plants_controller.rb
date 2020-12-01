@@ -9,6 +9,12 @@ class Api::V1::UserPlantsController < ApplicationController
     end
   end
 
+  def update
+    user_plant = UserPlant.find(params[:id])
+    user_plant.update(user_plant_params)
+    render json: { user_plant: UserPlantSerializer.new(user_plant) }, status: :ok
+  end
+
   private
 
   def user_plant_params
