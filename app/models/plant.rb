@@ -21,11 +21,13 @@ class Plant < ApplicationRecord
   def self.find_or_create_plant(plant_obj)
     if Plant.plant_in_database?(plant_obj[:api_id])
       existing_plant = Plant.find_by(api_id: plant_obj[:api_id])
+      existing_plant
     elsif
       new_plant = Plant.create(
         api_id: plant_obj[:api_id],
         slug: plant_obj[:slug]
       )
+      new_plant
     end
   end
 
