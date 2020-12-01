@@ -15,6 +15,12 @@ class Api::V1::UserPlantsController < ApplicationController
     render json: { user_plant: UserPlantSerializer.new(user_plant) }, status: :ok
   end
 
+  def destroy
+    user_plant = UserPlant.find(params[:id])
+    user_plant.delete
+    render json: {}, status: :accepted
+  end
+
   private
 
   def user_plant_params
