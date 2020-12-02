@@ -12,7 +12,7 @@ class Api::V1::UserPlantsController < ApplicationController
 
   def update
     @user_plant.update(user_plant_params)
-    render json: { user_plant: UserPlantSerializer.new(user_plant) }, status: :ok
+    render json: { user_plant: UserPlantSerializer.new(@user_plant) }, status: :ok
   end
 
   def destroy
