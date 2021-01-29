@@ -30,3 +30,7 @@
 /config/application.yml
 # Ignore application configuration
 /config/application.yml
+
+#Ignore the password to my default account for recording
+#so I don't forget how to login
+/.login_details
